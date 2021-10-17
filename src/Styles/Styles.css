@@ -1,0 +1,56 @@
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+}
+
+.trans {
+  -webkit-transition: all .13s ease;
+  transition: all .13s ease;
+}
+
+.loginpage {
+  max-height: 100vh;
+  margin-left: 30px;
+}
+
+@media (min-width: 320px) {
+  .loginpage {
+    width: 320px;
+  }
+}
+
+@media (min-width: 420px) and (max-width: 1599.99px) {
+  .loginpage {
+    width: 410px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .feedsection {
+    width: 1200px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .loginpage {
+    width: 500px;
+  }
+}
+
+button:disabled,
+button[disabled] {
+  opacity: .5;
+}
+
+.margined {
+  margin-left: 3vw;
+}
+
+.margined2 {
+  margin-right: 3vw;
+}
+/*# sourceMappingURL=Styles.css.map */
