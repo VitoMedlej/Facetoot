@@ -6,7 +6,7 @@
     @apply mb-5 border border-gray-300 px-2 text-gray-600 font-normal bg-white py-1 outline-none
 }
 .forms {
-    @apply mt-5 flex justify-center items-center flex-col border border-gray-300 shadow-lg py-8 px-4
+    @apply mt-5 flex justify-center items-center flex-col border border-gray-300 shadow-lg py-8 px-3
 }
 .btn1 {
     @apply border px-3 py-2 mt-4 bg-blue-600 text-white rounded-full
@@ -24,7 +24,7 @@
     @apply text-blue-500 h-10 p-2 flex text-center items-center justify-center
 }
 .dropdownmenu {
-    @apply cursor-pointer sm:hidden block blue bg-gray-200 border p-2 rounded-full;
+    @apply cursor-pointer sm:hidden block blue bg-gray-200 border p-2 rounded-full select-none ;
 }
 .formst {
     @apply px-3 items-center text-gray-700 h-12 bg-gray-100 rounded-full outline-none
@@ -33,11 +33,38 @@
     @apply font-semibold py-3 border-gray-300
 }
 .capformst {
-    @apply w-full mx-2 rounded-md bg-gray-200 px-2
+    @apply w-full mx-2 rounded-md bg-gray-200 
 }
 .btnicon {
     @apply mx-2  text-lg
 }
 .feedst {
     @apply  flex mx-auto justify-center mt-8 flex-col items-center
+}
+.DDMicon {
+    @apply  text-gray-600 mr-2 w-8 h-8 p-1 rounded-full
+}
+.DDMstlye {
+    @apply flex  sm:hidden bg-white rounded-lg w-80 pb-2  z-10 shadow-sm absolute top-full right-0
+}
+.DDMuserProfileStyles {
+    @apply border-b border-gray-300  p-2 w-80 cursor-pointer  flex text-center items-center
+}
+.ProfileDiv {
+    @apply z-50 absolute rounded-md w-full  text-xl p-5  items-center text-center bg-white  top-2 sm:top-12
+}
+.BlurBG {
+    @apply z-10 bg-black opacity-70 w-screen h-screen absolute top-0 right-0
+}
+.ProfilePageSection {
+    @apply lg:w-full relative flex flex-col items-center justify-center bg-white  my-0 mx-auto
+}
+.ProfliePageDiv {
+    @apply  w-full flex flex-col bg-white border-b border-gray-200
+}
+.ProfliePageDiv2 {
+    @apply flex flex-col sm:text-left text-center  items-center sm:ml-3 sm:flex-row sm:items-center
+}
+.EditProfileBTN2 {
+    @apply border bg-gray-300 font-medium rounded-sm px-3 py-2 sm:mx-0 mx-auto
 }

@@ -2,11 +2,11 @@ import {useFormik} from 'formik';
 import {useState} from 'react'
 import {signInWithEmailAndPassword} from 'firebase/auth'
 import {auth} from '../../Auth/initialize'
-import {useDispatch} from 'react-redux';
-import {userReady} from '../../Redux/CurrentUserSlice'
+
+
 
 const LoginLogic = () => {
-    const dispatch = useDispatch()
+
 
     const [error,
         SetError] = useState('')
@@ -18,7 +18,7 @@ const LoginLogic = () => {
             SetCheck(true)
             await signInWithEmailAndPassword(auth, email, password)
             SetCheck(false)
-            dispatch(userReady(true))
+         
 
         } catch (err) {
             SetError('Invalid Email or Password')

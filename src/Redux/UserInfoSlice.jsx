@@ -8,7 +8,8 @@ export const UserInfoSlice = createSlice({
             photoURL: 'https://res.cloudinary.com/dweqbyja4/image/upload/v1634239098/defaultuser_ygf4d8' +
                     '.png',
             email: '',
-            uid: ''
+            uid: '',
+            createdAt :''
         }
     },
     reducers: {
@@ -22,11 +23,15 @@ export const UserInfoSlice = createSlice({
 
             state.currentUserInfo.email = `${action.payload.User.email || ''}`
 
+        },
+        updateCreatedAT :(state ,action) =>{ 
+            state.currentUserInfo.createdAt = `${action.payload}`
         }
     }
 })
 
 export const {
-    updateUser
+    updateUser,
+    updateCreatedAT
 } = UserInfoSlice.actions
 export default UserInfoSlice.reducer

@@ -22,6 +22,7 @@ const LoginForm = () => {
                 : ''}
             <label className="pb-2 " htmlFor="email">Name</label>
             <input
+                required
                 ref={myForm}
                 className='inputs focus:border-blue-600'
                 id="name"
@@ -31,6 +32,7 @@ const LoginForm = () => {
                 value={formik.values.name}/>
             <label className="pb-2 " htmlFor="email">Email</label>
             <input
+                 required
                 className='inputs focus:border-blue-600'
                 id="email"
                 name="email"
@@ -41,6 +43,7 @@ const LoginForm = () => {
             <label className="pb-2 " htmlFor="password">password
             </label>
             <input
+                 required
                 className='inputs focus:border-blue-600'
                 id="password"
                 name="password"

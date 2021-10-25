@@ -1,15 +1,21 @@
 import LoginForm from '../Components/Login/LoginForm'
 import myimg from '../Images/mymg.jpg'
-import GoogleAuth from '../Components/Login/GoogleAuth';
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 
 const LoginPage = () => {
+
     const [loading,
         Setload] = useState(false)
-    const SignInPopUp = GoogleAuth()
+
+    useEffect(() => {
+        setTimeout(() => {
+            Setload(false)
+        }, 3000);
+    }, [loading])
+
     return (
         <div
-            className="mt-10  mx-auto flex 2xl:justify-center items-center 2xl:w-3/5 3xl:w-2/4">
+            className="mt-10  mx-auto flex 2xl:justify-center items-center   2xl:w-3/5 3xl:w-2/4">
 
             <div className="loginpage  mx-auto  ">
 
@@ -25,15 +31,6 @@ const LoginPage = () => {
                         <LoginForm/>
 
                     </div>
-                    <h1 className="my-4 ">Or</h1>
-
-                    <button
-                    disabled={loading ? true : false}
-                        onClick={() =>{ SignInPopUp() 
-                             Setload(true)}}
-                        className="p-2 w-2/3 text-blue-500 border-blue-500  border
-                                    rounded-full ">Sign Up With Google</button>
-
                 </div>
             </div>
             <div className="hidden lg:block">

@@ -4,26 +4,24 @@ import {onAuthStateChanged, signOut} from 'firebase/auth'
 import {useEffect, useState} from 'react'
 import {auth} from '../Auth/initialize'
 import {useDispatch} from "react-redux";
-import {userReady} from '../Redux/CurrentUserSlice'
-import {useSelector} from 'react-redux'
-import {updateUser} from '../Redux/UserInfoSlice.jsx'
+
+import {updateUser ,updateCreatedAT} from '../Redux/UserInfoSlice'
 
 function App() {
     const dispatch = useDispatch()
     const [currentUser,
         SetCurrentUser] = useState(null)
-
-    // const UserIsReady = useSelector(state => state.user.currentUser) const
-    const userinfo = useSelector(state => state.userInfo.currentUserInfo)
-
-    useEffect(() => {
-        console.log(userinfo);
-    },[userinfo]);
+    
+    // const userinfo = useSelector(state => state.userInfo.currentUserInfo)
+    
+  
 
     onAuthStateChanged(auth, user => {
+       
         if (user) {
             setTimeout(() => {
                 SetCurrentUser(user)
+                dispatch(updateCreatedAT(user.metadata.creationTime))
                 dispatch(updateUser({
                     User: {
                         displayName: user.displayName,
@@ -35,23 +33,16 @@ function App() {
             }, 700);
         } else {
             SetCurrentUser(null)
-          
+            dispatch(updateUser({
+                User: {
+                    displayName: null,
+                    photoURL: null,
+                    uid: null,
+                    email: null
+                }
+            }))
         }
     })
-
-    // useEffect(() => {
-
-    //     if (currentUser) {
-    //         dispatch(updateUser({
-    //             User: {
-    //                 displayName: currentUser.displayName,
-    //                 photoURL: currentUser.photoURL,
-    //                 uid: currentUser.uid,
-    //                 email: currentUser.email
-    //             }
-    //         }))
-    //     }
-    // }, [auth.currentUser])
 
     return (
         <section>

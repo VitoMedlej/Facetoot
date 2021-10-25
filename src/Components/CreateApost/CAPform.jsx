@@ -4,10 +4,13 @@ import MakePost from '../../Hooks/MakePost'
 import { useSelector } from 'react-redux'
 import {FiSend} from 'react-icons/fi'
 import {FcAddImage} from 'react-icons/fc'
-
+import WidgetInput from '../AddImageToPost/WidgetInput';
+import {useState} from 'react'
 const CAPform = () => {
 
     const userinfo = useSelector(state => state.userInfo.currentUserInfo)
+    const [open ,setOpen] = useState(false)
+    const [imageCDN ,SetimageCDN] = useState('')
     
     const formik = useFormik({
         initialValues: {
@@ -17,13 +20,21 @@ const CAPform = () => {
             if (!values.PostDetails) {
                 return;
             }
-            MakePost(values.PostDetails ,userinfo)
+            MakePost(values.PostDetails ,userinfo,imageCDN)
             resetForm('')
+            SetimageCDN('')
         }
     });
+    const openForm =() => {
+        setOpen(!open)
+    }
+    const getImageValue = (e) => {
+        SetimageCDN(e.cdnUrl)
+     
+    }
     return (
         <form
-            className='flex flex-col shadow-sm rounded-md  w-full bg-white'
+            className='flex flex-col shadow-sm rounded-md  relative w-full bg-white'
             onSubmit={formik.handleSubmit}>
             <div
                 className='flex mt-3 text-center items-center pb-3 border-gray-200 border-b '>
@@ -31,7 +42,7 @@ const CAPform = () => {
 
                 <input
                     className='formst w-11/12 '
-                    placeholder={`What's on your mind ${ 'user'}?`}
+                    placeholder={`What's on your mind ${userinfo.displayName}?`}
                     id="PostDetails"
                     name="PostDetails"
                     type="text"
@@ -39,16 +50,19 @@ const CAPform = () => {
                     value={formik.values.PostDetails}/>
             </div>
 
-            <div className="w-full sm:pb-2 text-gray-600 flex ">
+            <div className="w-full sm:pb-2 text-gray-600 flex relative">
                 <button type='submit' className='btnst border-r w-2/4 hover:bg-gray-200 flex2'>
                     Post
                     <FiSend className='btnicon mt-1'/>
                 </button>
-                <button type='button' className='w-2/4 btnst hover:bg-gray-200 flex2'>Add Image
+                <button 
+                onClick={()=>openForm()}
+                type='button' className='w-2/4 btnst relative  hover:bg-gray-200 flex2'>Add Image
                 <FcAddImage className='btnicon mt-1'/>
                 </button>
+              {open ?  <WidgetInput getImageValue={getImageValue} openForm={openForm} /> : ''} 
             </div>
-
+     
         </form>
     );
 };

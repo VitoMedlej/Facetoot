@@ -4,6 +4,7 @@ body {
     box-sizing: border-box;
     height: 100%;
     font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
 }
 .trans{
     transition: all .13s ease;
@@ -18,7 +19,7 @@ body {
 }
 @media (min-width: 320px) {
     .loginpage {
-        width: 320px;
+        width: 95%;
     }
 }
 @media (min-width: 420px) and (max-width:1599.99px) {
@@ -30,6 +31,14 @@ body {
     .feedsection {
         width: 1200px
      }
+     .postimage {
+        min-height: max-content;
+        height: 500px;
+        width: 100%;
+    }
+}
+img {
+    user-select: none;
 }
 @media (min-width: 1600px) {
     .loginpage {
@@ -48,3 +57,20 @@ button[disabled] {
 .margined2 {
     margin-right: 3vw;
 }
+.transed {
+    transition: all 0.4s ease-in-out;
+}
+.rotated {   
+    transform: rotate(180deg)
+}
+.userP {
+    transform: translateY(-40%);
+}
+.EditProfileBTN {
+    transform: translateY(-70%);
+}
+.translated {
+    transform: translateX(50%);
+}
+
+

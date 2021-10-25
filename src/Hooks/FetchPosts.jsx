@@ -1,4 +1,4 @@
-import {collection, query, onSnapshot} from "firebase/firestore";
+import {collection, query, onSnapshot ,orderBy ,limit} from "firebase/firestore";
 import {useState, useEffect} from 'react'
 import {db} from '../Auth/initialize'
 
@@ -9,7 +9,7 @@ const FetchPosts = () => {
         SetLoading] = useState(false)
 
     useEffect(() => {
-        const Postsquery = query(collection(db, "Posts"))
+        const Postsquery = query(collection(db, "Posts"),limit(100))
         const method = onSnapshot(Postsquery, (querySnapshot) => {
             const postsArray = [];
             querySnapshot.forEach((doc) => {

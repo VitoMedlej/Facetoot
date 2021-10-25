@@ -5,7 +5,7 @@ const CurrentUserProfile = () => {
     return (
         <div className='flex text-center items-center'>
             <div className="w-8 h-8 border rounded-full mx-2">
-                <img  src={`${userinfo && userinfo.photoURL} `} alt="" />
+                <img className="rounded-full w-full h-full" src={`${userinfo && `${userinfo.photoURL}`} `} alt="" />
             </div>
             <h1 className=" font-medium">
                 {userinfo.displayName || 'Default User'}

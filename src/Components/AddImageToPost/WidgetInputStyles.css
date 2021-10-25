@@ -1,0 +1,81 @@
+.uploadcare-widget-button-open
+
+{
+
+ background: #555555;
+
+}
+
+ 
+
+.uploadcare-widget-button-open:hover
+
+{
+
+ background: #555555;
+
+}
+
+ 
+
+.uploadcare-dialog-big-button
+
+{
+
+  background: #555555;
+
+  border: solid 1px #555555;
+
+  box-shadow: inset 0 -2px #555555;
+
+  text-shadow: 0 -1px #555555;
+
+}
+
+ 
+
+.uploadcare-dialog-big-button:hover
+
+{
+
+  background: #555555;
+
+  border: solid 1px #555555;
+
+  box-shadow: inset 0 -2px #333333;
+
+  text-shadow: 0 -1px #555555;
+
+}
+
+ 
+
+.uploadcare-dialog-button-success
+
+{
+
+  background: #555555;
+
+  border: solid 1px #555555;
+
+  box-shadow: inset 0 -2px #555555;
+
+  text-shadow: 0 -1px #555555;
+
+}
+
+ 
+
+.uploadcare-dialog-button-success:hover
+
+{
+
+  background: #555555;
+
+ border: solid 1px #555555;
+
+  box-shadow: inset 0 -2px #333333;
+
+  text-shadow: 0 -1px #555555;
+
+}

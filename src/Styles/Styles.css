@@ -5,11 +5,17 @@ body {
           box-sizing: border-box;
   height: 100%;
   font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
 }
 
 .trans {
   -webkit-transition: all .13s ease;
   transition: all .13s ease;
+}
+
+.trans2 {
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
 }
 
 .loginpage {
@@ -19,7 +25,7 @@ body {
 
 @media (min-width: 320px) {
   .loginpage {
-    width: 320px;
+    width: 95%;
   }
 }
 
@@ -33,6 +39,20 @@ body {
   .feedsection {
     width: 1200px;
   }
+  .postimage {
+    min-height: -webkit-max-content;
+    min-height: -moz-max-content;
+    min-height: max-content;
+    height: 500px;
+    width: 100%;
+  }
+}
+
+img {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 @media (min-width: 1600px) {
@@ -52,5 +72,30 @@ button[disabled] {
 
 .margined2 {
   margin-right: 3vw;
+}
+
+.transed {
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.rotated {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.userP {
+  -webkit-transform: translateY(-40%);
+          transform: translateY(-40%);
+}
+
+.EditProfileBTN {
+  -webkit-transform: translateY(-70%);
+          transform: translateY(-70%);
+}
+
+.translated {
+  -webkit-transform: translateX(50%);
+          transform: translateX(50%);
 }
 /*# sourceMappingURL=Styles.css.map */

@@ -1,14 +1,12 @@
 import {useFormik} from 'formik';
 import {useState, useEffect} from 'react'
 import {createUserWithEmailAndPassword, updateProfile} from 'firebase/auth'
-import {auth, app} from '../../Auth/initialize'
-import {userReady} from '../../Redux/CurrentUserSlice'
-import {useDispatch} from 'react-redux';
+import {auth} from '../../Auth/initialize'
 import SaveUser from './SaveUserInfo'
 
 const LoginLogic = () => {
     const photourl = `https://res.cloudinary.com/dweqbyja4/image/upload/v1634239098/defaultuser_ygf4d8.png`
-    const dispatch = useDispatch()
+
     const [error,
         SetError] = useState('')
 
@@ -28,16 +26,13 @@ const LoginLogic = () => {
             await createUserWithEmailAndPassword(auth, values.email, values.password)
             await updateProfile(auth.currentUser, {
                 displayName: `${values.name}`,
-                photoURL: `${photourl}`
-
+                photoURL: `${photourl}`,
             })
-            SaveUser(values.name, photourl, auth.currentUser.uid, values.email)
-            setTimeout(() => {
-                dispatch(userReady(true))
+            SaveUser(values.name, photourl, auth.currentUser.uid, values.email )
 
-            }, 100);
         } catch (err) {
             console.log(err);
+            SetError('Error creating account ,Please try again')
         }
 
     }
@@ -61,7 +56,7 @@ const LoginLogic = () => {
                 return;
             }
 
-            if (values) {
+            if (values.name.length > 4 && values.email && values.password) {
                 createAccount(values)
 
             }
