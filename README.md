@@ -1,1 +1,0 @@
-A facebook clone using react and firebase ,simple and clean ui (i hope) ,tried to optimize it as much as possible.
